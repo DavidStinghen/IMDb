@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: imdb_backend
+    command: yarn dev
+    ports:
+      - "3333:3333"
+    volumes:
+      - .:/app
+    depends_on:
+      - database
+    environment:
+        - DB_HOST=imdb_postgres_database
+    networks:
+      - network_board
+  database:
+    image: postgres
+    container_name: imdb_postgres_database
+    environment:
+      - ALLOW_EMPTY_PASSWORD=no
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - database_data:/data
+    networks:
+      - network_board
+
+volumes:
+  database_data:
+
+networks:
+  network_board:
+    driver: bridge
