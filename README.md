@@ -1,1 +1,1 @@
-# IMDb :movie:
+# IMDb :clapper:
