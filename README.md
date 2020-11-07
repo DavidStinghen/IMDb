@@ -30,7 +30,7 @@ Para a execução da api é necessário que você tenha instalado o Docker e o Y
 
 ## Documentação
 
-Para execurar a documentação da api acesse IMDb/docs/index.html. Caso não seja possível iniciar a documentação execute os comandos abaixo:
+Para executar a documentação da api acesse IMDb/docs/index.html. Caso não seja possível iniciar a documentação execute os comandos abaixo:
 ```
  $ yarn build:docs
  $ yarn dev:docs
