@@ -1,7 +1,7 @@
 # IMDb :clapper:
 
 IMDb :clapper: é uma api para cadastro de filmes, disponibiliza métodos para cadastro, atualização, visualização e listagem.
-A api também conta com métodos para avaliação de filmes. Além do cadastro de usuário a api ainda conta com cadastros de usuário/admin
+A api também conta com métodos para avaliação de filmes. Além do cadastro de filmes a api ainda conta com cadastros de usuário/admin
 e também com estrutura de sessão. [Aqui](https://bitbucket.org/ioasys/teste-backend/) você encontra as instruções utilizadas na criação da api.
 
 ## Instalação/Execução
