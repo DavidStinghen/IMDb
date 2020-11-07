@@ -1,7 +1,7 @@
 # IMDb :clapper:
 
 IMDb :clapper: é uma api para cadastro de filmes, disponibiliza métodos para cadastro, atualização, visualização e listagem.
-A api também conta com métodos para avaliação de filmes. Além do cadastro de usuário a api ainda conta com cadastros de usuário/admin
+A api também conta com métodos para avaliação de filmes. Além do cadastro de filmes a api ainda conta com cadastros de usuário/admin
 e também com estrutura de sessão. [Aqui](https://bitbucket.org/ioasys/teste-backend/) você encontra as instruções utilizadas na criação da api.
 
 ## Instalação/Execução
@@ -10,11 +10,11 @@ Para a execução da api é necessário que você tenha instalado o Docker e o Y
 
 - Clone o repositório executando o comando abaixo:
  ```
- $ git clone https://github.com/DavidStinghen/VUTTR.git
+ $ git clone https://github.com/DavidStinghen/IMDb
  ```
 - Acesse a pasta criada e execute o comando abaixo para instalar as dependências da aplicação:
   ```
-  $ cd VUTTR
+  $ cd IMDb
   $ yarn
   ```
 - Configure o arquivo .env conforme o arquivo .env.example;
@@ -30,7 +30,7 @@ Para a execução da api é necessário que você tenha instalado o Docker e o Y
 
 ## Documentação
 
-Para execurar a documentação da api acesse IMDb/docs/index.html. Caso não seja possível iniciar a documentação execute os comandos abaixo:
+Para executar a documentação da api acesse IMDb/docs/index.html. Caso não seja possível iniciar a documentação execute os comandos abaixo:
 ```
  $ yarn build:docs
  $ yarn dev:docs
