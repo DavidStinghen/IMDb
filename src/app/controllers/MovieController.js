@@ -56,7 +56,7 @@ class MovieController {
     const { id } = req.params
     const movie = await Movie.findByPk(id)
     if (!movie) {
-      return res.status(404).json({ error: 'Filme não encontrado' })
+      return res.status(404).json({ error: 'Não foi possível encontrar o filme' })
     }
 
     await movie.update(req.body)
@@ -79,7 +79,7 @@ class MovieController {
 
     const movie = await Movie.findByPk(id)
     if (!movie) {
-      return res.status(404).json({ error: 'Não foi possível encontrar o filme ' })
+      return res.status(404).json({ error: 'Não foi possível encontrar o filme' })
     }
 
     let finalRating = 0
