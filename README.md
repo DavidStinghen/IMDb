@@ -14,7 +14,7 @@ Para a execução da api é necessário que você tenha instalado o Docker e o Y
  ```
 - Acesse a pasta criada e execute o comando abaixo para instalar as dependências da aplicação:
   ```
-  $ cd VUTTR
+  $ cd IMDb
   $ yarn
   ```
 - Configure o arquivo .env conforme o arquivo .env.example;
