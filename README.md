@@ -10,7 +10,7 @@ Para a execução da api é necessário que você tenha instalado o Docker e o Y
 
 - Clone o repositório executando o comando abaixo:
  ```
- $ git clone https://github.com/DavidStinghen/VUTTR.git
+ $ git clone https://github.com/DavidStinghen/IMDb
  ```
 - Acesse a pasta criada e execute o comando abaixo para instalar as dependências da aplicação:
   ```
