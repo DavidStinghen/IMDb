@@ -1,4 +1,5 @@
 import * as Yup from 'yup'
+import { Op } from 'sequelize'
 import Movie from '../models/Movie'
 import User from '../models/User'
 import Rating from '../models/Rating'
@@ -65,7 +66,19 @@ class MovieController {
   }
 
   async index (req, res) {
-    const movie = await Movie.findAll()
+    const { name, director, genres, actors } = req.query
+    let movie = false
+    if (name) {
+      movie = await Movie.findAll({ where: { name: name } })
+    } else if (director) {
+      movie = await Movie.findAll({ where: { director: director } })
+    } else if (genres) {
+      movie = await Movie.findAll({ where: { genres: { [Op.contains]: [genres] } } })
+    } else if (actors) {
+      movie = await Movie.findAll({ where: { actors: { [Op.contains]: [actors] } } })
+    } else {
+      movie = await Movie.findAll()
+    }
 
     if (!movie) {
       return res.status(404).json({ error: 'Não foram encontrados filmes' })
