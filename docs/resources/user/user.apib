@@ -1,0 +1,98 @@
+## Usuários [/users]
+
+A aplicação possui gerenciamento de usuários, onde é possível realizar cadastros
+e também alterações caso o usuário tenha efetuado login no sistema.
+
+### Incluir [POST]
+
+Quando o cadastro do usuário é efetuado com sucesso é gerado um **hash** com a
+senha informada pelo usuário.
+
+Os campos para realizar o cadastro estão disponíveis na tabela abaixo:
+
+| Atributo    | Tipo          | Obrigatório | Descrição               |
+|------------ |:-------------:|:-----------:|-------------------------|
+| name        | string        | **SIM**     | Nome do usuário         |
+| email       | string        | **SIM**     | Um e-mail válido        |
+| password    | string        | **SIM**     | Senha                   |
+
++ Request Inclusão de um usuário com dados válidos
+    + Attributes (UserPasswordBase)
+
++ Response 200 (application/json)
+    + Attributes (UserCreateSuccessfully)
+
++ Request Inclusão de um usuário com dados inválidos
+    + Attributes (UserPasswordBase)
+      + name: `nome-inválido`  (required, string) - Nome do usuário
+      + email: `email-inválido`  (required, string) - E-mail do usuário
+      + password: `senha-inválida`  (required, string) - Senha do usuário
+
++ Response 400 (application/json)
+    + Attributes (UserErrorValidation)
+
++ Request Inclusão de um usuário com o e-mail igual a um e-mail já cadastrado
+    + Attributes (UserBase)
+      + name: `nome-inválido`  (required, string) - Nome do usuário
+      + email: `email-existente`  (required, string) - E-mail do usuário
+      + password: `senha-inválida`  (required, string) - Senha do usuário
+
++ Response 400 (application/json)
+    + Attributes (UserErrorEmailExist)
+
+### Atualizar [PUT]
+
+O usuário pode atualizar seus dados cadastrais como nome, e-mail e senha caso
+o mesmo tenha efetuado login no sistema.
+
++ Request Alteração do usuário informando dados válidos (application/json)
+    + Headers
+
+            Authorization: Bearer <token>
+
+    + Attributes (UserPasswordBase)
+      + name: `nome`  (optional, string) - Nome do usuário
+      + email: `e-mail`  (optional, string) - E-mail do usuário
+      + oldPassword: `senha antiga`  (optional, string) - Antiga senha do usuário
+      + password: `nova senha`  (optional, string) - Nova senha do usuário
+      + confirmPassword: `senha de confirmação`  (optional, string) - Senha de Confirmação
+
++ Response 200
+    + Attributes (UserUpdateSuccessfully)
+
++ Request Alteração do usuário informando dados inválidos (application/json)
+    + Headers
+
+              Authorization: Bearer <token>
+
+    + Attributes (UserBase)
+      + name: `nome  inválido` (required, string)
+      + email: `e-mail inválido` (required, string)
+      + oldPassword: `senha inválida` (required, string)
+
++ Response 400 (application/json)
+    + Attributes (UserErrorValidation)
+
++ Request Alteração do e-mail informando um e-mail existente (application/json)
+    + Headers
+
+              Authorization: Bearer <token>
+
+    + Attributes (UserBase)
+      + email: `email existente` (optional, string)
+
++ Response 400 (application/json)
+    + Attributes (UserErrorEmailExist)
+
++ Request Alteração da senha quando a nova senha não confere com a senha de confirmação (application/json)
+    + Headers
+
+              Authorization: Bearer <token>
+
+    + Attributes (UserBase)
+      + oldPassword: `senha antiga` (optional, string)
+      + password: `nova senha` (required, string)
+      + confirmPassword: `senha de confirmação diferente da nova senha` (required, string)
+
++ Response 401 (application/json)
+    + Attributes (UserErrorPasswordMatch)

@@ -1,0 +1,30 @@
+# Data Structures
+
+## UserBase
++ name: `Foo Bar` (required, string) - Nome do usuário
++ email: `foo@bar.com` (required, string) - E-mail do usuário
+
+## UserPasswordBase
++ Include (UserBase)
++ password: `12345678` (required, string) - Senha do usuário
+
+## UserCreateSuccessfully
++ id: 1 (required, number) - ID do usuário
++ Include (UserBase)
+
+## UserUpdateSuccessfully
++ inlcude (UserCreateSuccessfully)
++ token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTc3NjQyOTcwL
+          CJleHAiOjE1NzgyNDc3NzB9.ItD2diUjojSu7BN0swP-e86EOByYIJbNZcPBuwKZ-f0`
+
+## UserErrorValidation
++ code: `bad_request` (required, string) - Código de erro
++ error: `Validation fails` (required, string) - Mensagem do erro
+
+## UserErrorEmailExist
++ code: `bad_request` (required, string) - Código de erro
++ error: `User alredy exists` (required, string) - Mensagem do erro
+
+## UserErrorPasswordMatch
++ code: `unauthorized` (required, string) - Código de erro
++ error: `Password does not match` (required, string) - Mensagem do erro

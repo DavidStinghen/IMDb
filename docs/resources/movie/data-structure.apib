@@ -1,0 +1,30 @@
+# Data Structures
+
+## MovieBase
++ name: `foo bar` (required, string) - Titulo do filme.
++ director: `foo director` (required, string) - Nome do diretor.
++ actors: `foo actor`, `foo actor 2` (required, array[string]) - Nome dos atores.
++ genres: `drama`, `ação` (required, array[string]) - Gêneros.
++ duration: `180` (optional, number) - Duração.
++ synopsis: `uma descrição do filme` (optional, string) - Sinopse.
++ release: `05/11/2020` (optional, string) - Data de lançamento.
+
+## MovieResponse
++ code: `created` (required, string) - Código do status
++ id: 1 (required, number) - ID do filme.
++ Include (MovieBase)
+
+## MovieDeleteSuceffuly
++ code: `no content` (required, string) - Código do status
+
+## MovieErrorValidation
++ code: `bad_request` (required, string) - Código de erro
++ error: `Não foi possível realizar o cadastro, verifique os campos informados` (required, string) - Mensagem de erro
+
+## MovieUserUnauthorized
++ code: `bad_request` (required, string) - Código de erro
++ error: `Você não tem autorização para realizar cadastros de filmes` (required, string) - Mensagem de erro
+
+## MovieNotFound
++ code: `not_found` (required, string) - Código de erro
++ error: `Não foi possível encontrar o filme` (required, string) - Mensagem de erro

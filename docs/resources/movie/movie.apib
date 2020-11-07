@@ -1,0 +1,84 @@
+## Filmes [/movies]
+
+### Incluir [POST]
+
+Caso o usuário estiver logado e for administrador o mesmo poderá adicionar filmes.
+
+Os campos para realizar o cadastro estão disponíveis na tabela abaixo:
+
+| Atributo    | Tipo          | Obrigatório | Descrição               |
+|------------ |:-------------:|:-----------:|-------------------------|
+| name       | string        | **SIM**     | Nome do filme            |
+| director   | string        | **SIM**     | Nome do diretor          |
+| actors     | array[string] | **SIM**     | Atores                   |
+| genres     | array[string] | **SIM**     | Gêneros                  |
+| duration   | number        | NÃO         | Duração                  |
+| synopsis   | string        | NÃO         | Sinopse                  |
+| realeas    | string        | NÃO         | Data de lançamento       |
+
++ Request Incluir filme informando dados válidos (application/json)
+    + Headers
+
+              Authorization: Bearer <token>
+
+    + Attributes (MovieBase)
+
++ Response 201 (application/json)
+    + Attributes (MovieResponse)
+
++ Request Incluir filme informando dados inválidos (application/json)
+    + Headers
+
+              Authorization: Bearer <token>
+
+    + Attributes (MovieBase)
+      + name: `titulo-inválido`  (required, string) - Titulo do filme
+      + director: `nome-diretor-inválido`  (required, string) - Nome do diretor
+      + actors: `atores-inválidos`  (required, array) - atores
+      + genres: `gêneros-inválidos`  (required, array) - Gêneros
+
++ Response 400 (application/json)
+    + Attributes (MovieErrorValidation)
+
+### Listar [GET/movies]
+
+Listar todos os filmes cadastradas.
+
++ Request Listar filmes (application/json)
+    + Headers
+
+              Authorization: Bearer <token>
+
++ Response 200 (application/json)
+    + Attributes (array[MoveResponse])
+
+### Atualizar [PUT /movies/{id}]
+
+É possível atualizar os dados dos filmes cadastradas.
+
++ Parameters
+  + id: 1 (required, number) - ID do filme
+
++ Request Alterar filme informando dados válidos (application/json)
+    + Headers
+
+              Authorization: Bearer <token>
+
+    + Attributes (MovieBase)
+
++ Response 200 (application/json)
+    + Attributes (MovieResponse)
+
++ Request Alterar o filme informando dados  inválidos (application/json)
+    + Headers
+
+              Authorization: Bearer <token>
+
+    + Attributes (MovieBase)
+      + name: `titulo-inválido`  (required, string) - Titulo do filme
+      + director: `nome-diretor-inválido`  (required, string) - Nome do diretor
+      + actors: `atores-inválidos`  (required, array) - atores
+      + genres: `gêneros-inválidos`  (required, array) - Gêneros
+
++ Response 400 (application/json)
+    + Attributes (MovieErrorValidation)

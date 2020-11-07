@@ -9,11 +9,15 @@
     "dev": "nodemon src/server.js",
     "pretest": "cross-env NODE_ENV=test sequelize db:migrate",
     "test": "jest",
-    "posttest": "cross-env NODE_ENV=test sequelize db:migrate:undo:all"
+    "posttest": "cross-env NODE_ENV=test sequelize db:migrate:undo:all",
+    "dev:docs": "yarn build:docs -- -s",
+    "build:docs": "aglio --theme-full-width -i docs/index.apib -t  default -o docs/index.html"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
     "@types/jest": "^26.0.15",
+    "aglio": "^2.3.0",
+    "aglio-theme-onlicar": "^1.6.4",
     "eslint": "^7.12.1",
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",

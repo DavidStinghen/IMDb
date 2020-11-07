@@ -1,0 +1,24 @@
+# Data Structures
+
+## LoginBase
++ email: `foo@bar.com` (required, string) - E-mail do usuário
++ password: `12345678` (required, string) - Senha do usuário
+
+## LoginSuccessfully
++ id: 1 (required, number) - ID do usuário
++ name: `foo bar` (required, string) - Senha do usuário
++ email: `foo@bar.com` (required, string) - E-mail do usuário
++ token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTc3NjQyOTcwL
+          CJleHAiOjE1NzgyNDc3NzB9.ItD2diUjojSu7BN0swP-e86EOByYIJbNZcPBuwKZ-f0`
+
+## LoginErrorValidation
++ code: `bad_request` (required, string) - Código de erro
++ error: `Validation fails` (required, string) - Mensagem do erro
+
+## LoginErrorEmailNotExist
++ code: `bad_request` (required, string) - Código de erro
++ error: `User not found` (required, string) - Mensagem do erro
+
+## LoginErrorPasswordMatch
++ code: `unauthorized` (required, string) - Código de erro
++ error: `Password does not match` (required, string) - Mensagem do erro

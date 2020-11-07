@@ -1,0 +1,44 @@
+## Sessão [/session]
+
+A aplicação possui gerenciamento de sessão, onde é possível realizar login
+fornecendo os dados necessários (e-mail e senha), com isso irá ser gerado
+um **token** para a autorização de acesso.
+
+### Login [POST]
+
+Os campos para realizar o login na aplicação estão disponíveis na tabela abaixo:
+
+| Atributo    | Tipo          | Obrigatório | Descrição               |
+|------------ |:-------------:|:-----------:|-------------------------|
+| email       | string        | **SIM**     | Um e-mail válido        |
+| password    | string        | **SIM**     | Senha                   |
+
++ Request Login com dados válidos
+    + Attributes (LoginBase)
+
++ Response 200 (application/json)
+    + Attributes (LoginSuccessfully)
+
++ Request Login com dados inválidos
+    + Attributes (LoginBase)
+      + email: `email-inválido`  (required, string) - E-mail do usuário
+      + password: `senha-inválida`  (required, string) - Senha do usuário
+
++ Response 400 (application/json)
+    + Attributes (LoginErrorValidation)
+
++ Request Login com e-mail não existente
+    + Attributes (LoginBase)
+      + email: `email não existente`  (required, string) - E-mail do usuário inexistente
+      + password: `senha`  (required, string) - Senha do usuário
+
++ Response 404 (application/json)
+    + Attributes (LoginErrorEmailNotExist)
+
++ Request Login senha errrada
+    + Attributes (LoginBase)
+      + email: `email`  (required, string) - E-mail do usuário
+      + password: `senha errada`  (required, string) - Senha do usuário errada
+
++ Response 401 (application/json)
+    + Attributes (LoginErrorPasswordMatch)
